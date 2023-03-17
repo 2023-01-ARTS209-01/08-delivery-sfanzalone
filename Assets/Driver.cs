@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Driver : MonoBehaviour
 {
-    [SerializeField] private float steerSpeed = 1f; //Changing this value INVERTS the controls
-    [SerializeField] private float driveSpeed = 0.01f;
+    [SerializeField] private float steerSpeed = 30f; //Changing this value INVERTS the controls
+    [SerializeField] private float driveSpeed = 10f;
 
     // Start is called before the first frame update
     void Start()
@@ -16,8 +16,8 @@ public class Driver : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float steerAmt = Input.GetAxis("Horizontal") * steerSpeed; //Changing steerSpeed INVERTS the controls
-        float moveAmt = Input.GetAxis("Vertical") * driveSpeed; //Changes vertical movement
+        float steerAmt = Input.GetAxis("Horizontal") * steerSpeed * Time.deltaTime; //Changing steerSpeed INVERTS the controls
+        float moveAmt = Input.GetAxis("Vertical") * driveSpeed * Time.deltaTime; //Changes vertical movement
 
         transform.Rotate(0, 0, -steerAmt); //Making steerAmt POSITIVE will INVERTS the controls
         //transform.Translate(0, driveSpeed, 0);

@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Package
   - Goal
+  - Speed Boost
+  - Anti-boost
   layers:
   - Default
   - TransparentFX

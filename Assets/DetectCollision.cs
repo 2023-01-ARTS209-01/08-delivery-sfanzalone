@@ -20,6 +20,7 @@ public class DetectCollision : MonoBehaviour
         {
             Debug.Log("Picked up package");
             hasPackage = true;
+            Destroy(trigger.gameObject, 0.1f);
         }
 
         if (trigger.gameObject.CompareTag("Goal") && hasPackage)

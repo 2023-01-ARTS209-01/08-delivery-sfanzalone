@@ -6,6 +6,7 @@ public class Driver : MonoBehaviour
 {
     [SerializeField] private float steerSpeed = 30f; //Changing this value INVERTS the controls
     [SerializeField] private float driveSpeed = 10f;
+    
     private bool hasBoost = false;
 
     // Start is called before the first frame update

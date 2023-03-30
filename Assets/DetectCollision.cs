@@ -6,7 +6,16 @@ public class DetectCollision : MonoBehaviour
 {
     //Instance variables for class
     private bool hasPackage = false;
-    
+    SpriteRenderer spriteRenderer;
+
+    [SerializeField] Color hasPackageColor;
+    [SerializeField] Color doesNotHasPackageColor;
+
+    private void Start()
+    {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         Debug.Log("We hit something!! - " + collision.gameObject.name);
@@ -20,6 +29,7 @@ public class DetectCollision : MonoBehaviour
         {
             Debug.Log("Picked up package");
             hasPackage = true;
+            spriteRenderer.color = hasPackageColor;
             Destroy(trigger.gameObject, 0.1f);
         }
 
@@ -27,6 +37,7 @@ public class DetectCollision : MonoBehaviour
         {
             Debug.Log("Package has been delivered!  You Win!");
             hasPackage = false;
+            spriteRenderer.color = doesNotHasPackageColor;
         }
     }
 }
